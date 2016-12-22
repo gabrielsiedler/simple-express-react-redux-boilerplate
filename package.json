@@ -55,11 +55,9 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.8.0",
     "json-loader": "^0.5.4",
-    "node-sass": "^3.7.0",
     "postcss-loader": "^0.9.1",
     "react-addons-test-utils": "^15.0.2",
     "rimraf": "^2.5.2",
-    "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7"
   }
