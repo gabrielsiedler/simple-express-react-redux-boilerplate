@@ -1,4 +1,4 @@
-const autoprefixer = require('autoprefixer');
+
 const webpack = require('webpack');
 const StatsPlugin = require('stats-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -20,10 +20,6 @@ pack.plugins.push(new webpack.DefinePlugin({
   'process.env.NODE_ENV': JSON.stringify('production'),
 }));
 pack.plugins.push(new ExtractTextPlugin('[name]-[hash].min.css'));
-
-pack.postcss = [
-  autoprefixer,
-];
 
 pack.output.filename = '[name]-[hash].js';
 

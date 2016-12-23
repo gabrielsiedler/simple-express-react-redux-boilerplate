@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 const pack = {
   entry: [
@@ -25,6 +26,7 @@ const pack = {
         loaders: [
           'style?sourceMap',
           'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+          'postcss',
         ],
       },
       {
@@ -42,6 +44,9 @@ const pack = {
       },
     ],
   },
+  postcss: [
+    autoprefixer,
+  ],
 };
 
 module.exports = pack;

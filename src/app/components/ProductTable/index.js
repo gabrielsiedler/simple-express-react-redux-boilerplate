@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import ProductRow from './ProductRow';
+import ProductRow from '../ProductRow';
 
 const products = [
   { category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football' },
