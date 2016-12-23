@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "",
-    "start": "nodemon server --watch ./*.js --watch src/server",
+    "start": "nodemon server --watch server.js --watch src/server",
     "build": "rimraf dist && webpack --config ./webpack.production.config.js --progress --profile --colors",
     "eslint": "eslint ."
   },
@@ -59,6 +59,7 @@
     "react-addons-test-utils": "^15.0.2",
     "rimraf": "^2.5.2",
     "style-loader": "^0.13.1",
-    "url-loader": "^0.5.7"
+    "url-loader": "^0.5.7",
+    "webpack-module-hot-accept": "^1.0.4"
   }
 }

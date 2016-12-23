@@ -1,18 +1,14 @@
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
-const config = require('./webpack.config');
+const config = require('./webpack.development.config');
 
 new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
   hot: true,
   historyApiFallback: true,
-  // It suppress error shown in console, so it has to be set to false.
   quiet: false,
-  // It suppress everything except error, so it has to be set to false as well
-  // to see success build.
   noInfo: false,
   stats: {
-    // Config for minimal console.log mess.
     assets: false,
     colors: true,
     version: false,
@@ -24,6 +20,10 @@ new WebpackDevServer(webpack(config), {
 }).listen(3000, 'localhost', (err) => {
   if (err) {
     console.log(err);
+  }
+
+  if (module.hot) {
+    module.hot.accept();
   }
 
   console.log('Listening at localhost:3000');
