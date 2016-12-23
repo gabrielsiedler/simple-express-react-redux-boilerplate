@@ -4,10 +4,15 @@ import { render } from 'react-dom';
 import { browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { AppContainer } from 'react-hot-loader';
-import configureStore from './store/configureStore';
+import { createStore } from 'redux';
+
+import rootReducer from './reducers';
 import Root from './Root';
 
-const store = configureStore();
+const store = createStore(
+  rootReducer,
+);
+
 const history = syncHistoryWithStore(browserHistory, store);
 
 render(

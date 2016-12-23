@@ -1,15 +1,11 @@
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
-import style from './Container.css';
+import Navbar from '../Navbar';
 
 const App = ({ children }) =>
   <div>
     <h1>Filter table</h1>
+    <Navbar />
     { children }
-    <footer className={style.footer}>
-      <Link to="/">Filterable Table</Link>
-      <Link to="/about">About</Link>
-    </footer>
   </div>;
 
 App.propTypes = {

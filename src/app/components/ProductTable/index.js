@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import ProductRow from '../ProductRow';
 
 const products = [
   { category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football' },
@@ -19,7 +18,7 @@ const ProductTable = ({ filter }) => {
 
     if (nameLC.indexOf(filterLC) !== -1) {
       rows.push(
-        <ProductRow key={p.name} data={p} />,
+        <p key={p.name}>{p.name} = {p.price} </p>,
       );
     }
   });
