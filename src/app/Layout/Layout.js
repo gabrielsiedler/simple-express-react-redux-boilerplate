@@ -1,10 +1,9 @@
 import React, { PropTypes } from 'react';
-import Navbar from '../Navbar';
+import Header from './Header';
 
 const App = ({ children }) =>
   <div>
-    <h1>Filter table</h1>
-    <Navbar />
+    <Header />
     { children }
   </div>;
 

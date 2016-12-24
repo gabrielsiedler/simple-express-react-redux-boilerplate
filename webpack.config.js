@@ -5,6 +5,7 @@ const autoprefixer = require('autoprefixer');
 
 const pack = {
   entry: [
+    'whatwg-fetch',
     path.join(__dirname, 'src/app/index.js'),
   ],
   output: {

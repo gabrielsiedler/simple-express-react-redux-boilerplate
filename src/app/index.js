@@ -5,13 +5,11 @@ import { browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { createStore } from 'redux';
 
-import rootReducer from './reducers';
+import Reducers from './reducers';
+
 import Root from './Root';
 
-const store = createStore(
-  rootReducer,
-);
-
+const store = createStore(Reducers);
 const history = syncHistoryWithStore(browserHistory, store);
 
 render(

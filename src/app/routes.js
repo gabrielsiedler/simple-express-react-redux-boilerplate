@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import About from './components/About';
-import Container from './components/Container';
-import FilterableTable from './components/FilterableTable';
-import NotFound from './components/NotFound';
+import About from './About/About';
+import Layout from './Layout/Layout';
+import Home from './Home/Home';
+import NotFound from './NotFound/NotFound';
 
 export default (
-  <Route path="/" component={Container}>
-    <IndexRoute component={FilterableTable} />
+  <Route path="/" component={Layout}>
+    <IndexRoute component={Home} />
     <Route path="/about" component={About} />
     <Route path="*" component={NotFound} />
   </Route>
