@@ -1,33 +1,47 @@
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 
-const products = [
-  { category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football' },
-  { category: 'Sporting Goods', price: '$9.99', stocked: true, name: 'Baseball' },
-  { category: 'Sporting Goods', price: '$29.99', stocked: false, name: 'Basketball' },
-  { category: 'Electronics', price: '$99.99', stocked: true, name: 'iPod Touch' },
-  { category: 'Electronics', price: '$399.99', stocked: false, name: 'iPhone 5' },
-  { category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7' },
-];
+import { fetchData } from './HomeActions';
 
-const ProductTable = ({ filter }) => {
-  const rows = [];
+class ProductTable extends React.Component {
+  static propTypes = {
+    filter: PropTypes.string,
+    products: PropTypes.array,
+  }
 
-  products.forEach((p) => {
-    const nameLC = p.name.toLowerCase();
-    const filterLC = filter.toLowerCase();
+  componentDidMount() {
+    const { fetchProducts } = this.props;
 
-    if (nameLC.indexOf(filterLC) !== -1) {
-      rows.push(
-        <p key={p.name}>{p.name} = {p.price} </p>,
-      );
+    fetchProducts();
+  }
+
+  render() {
+    const { filter, products } = this.props;
+    const rows = [];
+
+    if (products) {
+      products.forEach((p) => {
+        const nameLC = p.name.toLowerCase();
+        const filterLC = filter.toLowerCase();
+
+        if (nameLC.indexOf(filterLC) !== -1) {
+          rows.push(
+            <p key={p.name}>{p.name} = {p.price} </p>,
+          );
+        }
+      });
     }
-  });
 
-  return <div> {rows} </div>;
+    return <div> {rows} </div>;
+  }
+}
+
+const mapStateToProps = state => {
+  return { products: state.table.products };
 };
 
-ProductTable.propTypes = {
-  filter: PropTypes.string,
-};
+const mapDispatchToProps = dispatch => ({
+  fetchProducts: () => dispatch(fetchData()),
+});
 
-export default ProductTable;
+export default connect(mapStateToProps, mapDispatchToProps)(ProductTable);

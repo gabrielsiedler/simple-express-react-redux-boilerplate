@@ -1,4 +1,5 @@
 const constants = {
+  FETCH: 'FETCH',
   FILTER: 'FILTER',
 };
 

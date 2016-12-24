@@ -1,9 +1,22 @@
 import types from '../constants';
 
-const HomeReducers = (state = '', action) => {
+const initialState = {
+  filter: '',
+  products: [],
+};
+
+const HomeReducers = (state = initialState, action) => {
   switch (action.type) {
     case types.FILTER:
-      return action.filter;
+      return {
+        ...state,
+        filter: action.payload,
+      };
+    case types.FETCH:
+      return {
+        ...state,
+        products: action.payload,
+      };
     default:
       return state;
   }

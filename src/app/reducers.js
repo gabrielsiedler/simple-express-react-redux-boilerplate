@@ -4,7 +4,7 @@ import { routerReducer as routing } from 'react-router-redux';
 import HomeReducers from './Home/HomeReducers';
 
 const App = combineReducers({
-  filter: HomeReducers,
+  table: HomeReducers,
   routing,
 });
 

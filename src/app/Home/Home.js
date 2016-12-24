@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import filterTable from './HomeActions';
+import { filterTable } from './HomeActions';
 import Filter from './Filter';
 import Table from './Table';
 import style from './Home.css';
@@ -19,7 +19,7 @@ Home.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  filter: state.filter,
+  filter: state.table.filter,
 });
 
 const mapDispatchToProps = dispatch => ({
