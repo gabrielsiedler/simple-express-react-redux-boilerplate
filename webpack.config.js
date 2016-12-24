@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const autoprefixer = require('autoprefixer');
 
 const pack = {
@@ -9,18 +10,22 @@ const pack = {
   output: {
     path: path.join(__dirname, '/dist/'),
     filename: '[name].js',
-    publicPath: '/',
+    publicPath: '/public/',
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/app/index.html',
       inject: 'body',
       filename: 'index.html',
+      publicPath: '/public/',
+      alwaysWriteToDisk: true,
     }),
+    new HtmlWebpackHarddiskPlugin(),
   ],
   module: {
     loaders: [
       {
+        name: 'style',
         test: /\.css$/,
         include: /src\/app/,
         loaders: [

@@ -1,5 +1,6 @@
 const compression = require('compression');
 const express = require('express');
+const morgan = require('morgan');
 const path = require('path');
 const favicon = require('serve-favicon');
 const webpack = require('webpack');
@@ -11,11 +12,14 @@ const webpackConfig = require('./webpack.development.config');
 
 const compiler = webpack(webpackConfig);
 
+app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
+
 app.use(compression());
 app.use(favicon(path.join(__dirname, 'favicon.ico')));
 
 if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
   console.log('Development environment. Using webpack-dev-middleware.');
+
   app.use(webpackDevMiddleware(compiler, {
     publicPath: webpackConfig.output.publicPath,
     hot: true,
@@ -36,11 +40,11 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
   app.use(webpackHotMiddleware(compiler));
 }
 
-app.use('/static', express.static(path.join(__dirname, 'dist')));
+app.use('/public', express.static(path.join(__dirname, 'dist')));
 app.use('/api', require('./src/server/api'));
 
-app.use('/', () => {
-  express.static(path.join(__dirname, 'dist'));
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
 });
 
 module.exports = app;
