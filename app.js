@@ -18,7 +18,7 @@ app.use(compression());
 app.use(favicon(path.join(__dirname, 'favicon.ico')));
 
 if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
-  console.log('Development environment. Using webpack-dev-middleware.');
+  console.log('Development environment. Using webpack-dev-middleware.'); // eslint-disable-line no-console
 
   app.use(webpackDevMiddleware(compiler, {
     publicPath: webpackConfig.output.publicPath,

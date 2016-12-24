@@ -7,7 +7,7 @@
     "start": "NODE_ENV=production node server",
     "start:dev": "NODE_ENV=development nodemon server --ignore node_modules --ignore src/app",
     "build": "rimraf dist && webpack --config ./webpack.production.config.js --progress --profile --colors",
-    "lint": "eslint . && stylelint ."
+    "lint": "eslint . && stylelint src/app/**/*.css || true"
   },
   "repository": {
     "type": "git",

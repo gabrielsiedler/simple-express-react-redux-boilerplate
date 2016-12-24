@@ -4,11 +4,6 @@ import { connect } from 'react-redux';
 import { fetchData } from './HomeActions';
 
 class ProductTable extends React.Component {
-  static propTypes = {
-    filter: PropTypes.string,
-    products: PropTypes.array,
-  }
-
   componentDidMount() {
     const { fetchProducts } = this.props;
 
@@ -36,9 +31,13 @@ class ProductTable extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return { products: state.table.products };
+ProductTable.propTypes = {
+  filter: PropTypes.string,
+  products: PropTypes.array,
+  fetchProducts: PropTypes.func,
 };
+
+const mapStateToProps = state => ({ products: state.table.products });
 
 const mapDispatchToProps = dispatch => ({
   fetchProducts: () => dispatch(fetchData()),
