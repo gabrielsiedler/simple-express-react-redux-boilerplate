@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "",
-    "start": "nodemon server --watch server.js --watch src/server",
+    "start": "nodemon server --ignore node_modules --ignore src/app",
     "build": "rimraf dist && webpack --config ./webpack.production.config.js --progress --profile --colors",
     "lint": "eslint . && stylelint ."
   },
@@ -26,6 +26,8 @@
   "dependencies": {
     "autoprefixer": "^6.3.6",
     "babel-polyfill": "^6.8.0",
+    "compression": "^1.6.2",
+    "express": "^4.14.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.16.1",
@@ -37,9 +39,12 @@
     "react-router": "^2.4.0",
     "react-router-redux": "^4.0.4",
     "redux": "^3.5.2",
+    "serve-favicon": "^2.3.2",
     "stats-webpack-plugin": "^0.3.1",
     "webpack": "^1.13.0",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-middleware": "^1.9.0",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-hot-middleware": "^2.14.0"
   },
   "devDependencies": {
     "babel-core": "^6.8.0",
