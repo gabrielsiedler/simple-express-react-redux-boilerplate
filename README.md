@@ -7,7 +7,7 @@ Contains:
 * Webpack hot reload
 * Webpack production build
 * Css modules support, just import your styles wherever you need them
-* eslint and stylelint to keep your js readable
+* eslint and stylelint
 * much more...
 
 This project was based on two other boilerplates:
@@ -17,7 +17,7 @@ This project was based on two other boilerplates:
 ## Run the app
 
 0. ```npm install```
-0. ```npm start:dev```
+0. ```npm run start:dev```
 
 ## Build the app
 ```npm run build```
