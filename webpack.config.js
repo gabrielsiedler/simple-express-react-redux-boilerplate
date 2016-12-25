@@ -48,6 +48,10 @@ const pack = {
         test: /\.(ttf|eot|svg)(\?[a-z0-9#=&.]+)?$/,
         loader: 'file',
       },
+      {
+        test: /\.(png|jpg|jpeg|gif)$/,
+        loader: 'url-loader?limit=8192',
+      },
     ],
   },
   postcss: [

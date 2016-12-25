@@ -4,7 +4,7 @@
   "description": "React/Redux boilerplate.",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production node server",
+    "start": "NODE_ENV=production nodemon server",
     "start:dev": "NODE_ENV=development nodemon server --ignore node_modules --ignore src/app",
     "build": "rimraf dist && webpack --config ./webpack.production.config.js --progress --profile --colors",
     "test": "npm run test:lint && npm run test:unit",
@@ -38,6 +38,7 @@
     "morgan": "^1.7.0",
     "nodemon": "^1.11.0",
     "react": "^15.0.2",
+    "react-bootstrap": "^0.30.7",
     "react-dom": "^15.0.2",
     "react-hot-loader": "^3.0.0-beta.2",
     "react-redux": "^4.4.5",

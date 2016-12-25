@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { routerReducer as routing } from 'react-router-redux';
 
-import HomeReducers from './Home/HomeReducers';
+import HomeReducers from './domains/Home/HomeReducers';
 
 const App = combineReducers({
   table: HomeReducers,

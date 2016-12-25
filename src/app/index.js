@@ -5,6 +5,9 @@ import { browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { createStore } from 'redux';
 
+import './assets/css/bootstrap.min.css';
+import './assets/css/bootstrap-theme.min.css';
+
 import Reducers from './reducers';
 
 import Root from './Root';
