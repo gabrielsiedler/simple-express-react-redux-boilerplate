@@ -6,6 +6,7 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { createStore } from 'redux';
 
 import './global.scss';
+import '../../node_modules/bootstrap-sass/assets/javascripts/bootstrap.min';
 
 import Reducers from './reducers';
 

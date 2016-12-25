@@ -4,7 +4,9 @@ import Header from './Header';
 const App = ({ children, location }) =>
   <div>
     <Header location={location} />
-    { children }
+    <div className="container">
+      { children }
+    </div>
   </div>;
 
 App.propTypes = {

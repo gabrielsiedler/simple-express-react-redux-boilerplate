@@ -12,17 +12,11 @@
   height: 50px;
 }
 
-.nav {
-  margin-left: 30px;
-}
-
-.nav,
-.nav li,
 .nav li a {
   height: 80px;
 }
 
-.navbar .link {
+.link {
   min-width: 80px;
   text-align: center;
 }
@@ -31,4 +25,14 @@
   margin: 0 auto 5px;
   display: block;
   font-size: 25px;
+}
+
+.collapseBtn {
+  padding-top: 25px;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    margin-left: 30px;
+  }
 }

@@ -13,11 +13,17 @@ const Header = ({ location }) => {
     <nav className={`navbar navbar-inverse ${style.navbar}`}>
       <div className="container-fluid">
         <div className="navbar-header">
+          <button type="button" className={`navbar-toggle collapsed ${style.collapseBtn}`} data-toggle="collapse" data-target="#collapse-menu" aria-expanded="false">
+            <span className="sr-only">Toggle navigation</span>
+            <span className="icon-bar" />
+            <span className="icon-bar" />
+            <span className="icon-bar" />
+          </button>
           <Link className={`navbar-brand ${style.brand}`} to="/">
             <img alt="Logo" src={logoImage} role="presentation" />
           </Link>
         </div>
-        <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div className="collapse navbar-collapse" id="collapse-menu">
           <ul className={`nav navbar-nav ${style.nav}`}>
             <li className={active('/')}>
               <Link className={style.link} to="/">
