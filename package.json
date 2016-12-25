@@ -7,7 +7,9 @@
     "start": "NODE_ENV=production node server",
     "start:dev": "NODE_ENV=development nodemon server --ignore node_modules --ignore src/app",
     "build": "rimraf dist && webpack --config ./webpack.production.config.js --progress --profile --colors",
-    "lint": "eslint . && stylelint src/app/**/*.css || true"
+    "test": "npm run test:lint && npm run test:unit",
+    "test:lint": "eslint . && stylelint src/app/**/*.css || true",
+    "test:unit": "mocha src/server/spec"
   },
   "repository": {
     "type": "git",
@@ -64,6 +66,7 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.8.0",
     "json-loader": "^0.5.4",
+    "mocha": "^3.2.0",
     "postcss-loader": "^0.9.1",
     "react-addons-test-utils": "^15.0.2",
     "rimraf": "^2.5.2",
