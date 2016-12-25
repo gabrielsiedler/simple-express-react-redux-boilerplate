@@ -26,10 +26,11 @@ const pack = {
   module: {
     loaders: [
       {
+        name: 'global',
         test: /global\.scss$/,
         include: /src\/app/,
         loaders: [
-          'style',
+          'style?sourceMap',
           'css?sourceMap&importLoaders=1',
           'sass',
           'postcss',
@@ -42,7 +43,8 @@ const pack = {
         loaders: [
           'style?sourceMap',
           'css?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
-          'postcss-loader',
+          'sass',
+          'postcss',
         ],
       },
       {
