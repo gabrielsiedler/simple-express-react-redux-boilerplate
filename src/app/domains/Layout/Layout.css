@@ -1,7 +1,34 @@
-.menu {
-  margin-bottom: 20px;
+.navbar {
+  background-color: #333;
+  border: 0;
+  border-radius: 0;
 }
 
-.menu a {
-  padding: 5px 10px 5px 0;
+.brand {
+  height: 80px;
+}
+
+.brand img {
+  height: 50px;
+}
+
+.nav {
+  margin-left: 30px;
+}
+
+.nav,
+.nav li,
+.nav li a {
+  height: 80px;
+}
+
+.navbar .link {
+  min-width: 80px;
+  text-align: center;
+}
+
+.icon {
+  margin: 0 auto 5px;
+  display: block;
+  font-size: 25px;
 }

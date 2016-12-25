@@ -26,13 +26,23 @@ const pack = {
   module: {
     loaders: [
       {
+        test: /global\.scss$/,
+        include: /src\/app/,
+        loaders: [
+          'style',
+          'css?sourceMap&importLoaders=1',
+          'sass',
+          'postcss',
+        ],
+      },
+      {
         name: 'style',
-        test: /\.css$/,
+        test: /^((?!global).)*\.s?css$/,
         include: /src\/app/,
         loaders: [
           'style?sourceMap',
-          'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-          'postcss',
+          'css?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+          'postcss-loader',
         ],
       },
       {
@@ -41,12 +51,24 @@ const pack = {
         loader: 'babel',
       },
       {
-        test: /\.woff(2)?(\?[a-z0-9#=&.]+)?$/,
-        loader: 'url?limit=10000&mimetype=application/font-woff',
+        test: /\.svg(\?[a-z0-9#=&.]+)?$/,
+        loader: 'url?limit=65000&mimetype=image/svg+xml&name=public/fonts/[name].[ext]',
       },
       {
-        test: /\.(ttf|eot|svg)(\?[a-z0-9#=&.]+)?$/,
-        loader: 'file',
+        test: /\.woff(\?[a-z0-9#=&.]+)?$/,
+        loader: 'url?limit=65000&mimetype=application/font-woff&name=public/fonts/[name].[ext]',
+      },
+      {
+        test: /\.woff2(\?[a-z0-9#=&.]+)?$/,
+        loader: 'url?limit=65000&mimetype=application/font-woff2&name=public/fonts/[name].[ext]',
+      },
+      {
+        test: /\.[ot]tf(\?[a-z0-9#=&.]+)?$/,
+        loader: 'url?limit=65000&mimetype=application/octet-stream&name=public/fonts/[name].[ext]',
+      },
+      {
+        test: /\.eot(\?[a-z0-9#=&.]+)?$/,
+        loader: 'url?limit=65000&mimetype=application/vnd.ms-fontobject&name=public/fonts/[name].[ext]',
       },
       {
         test: /\.(png|jpg|jpeg|gif)$/,

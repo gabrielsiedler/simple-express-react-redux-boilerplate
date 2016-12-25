@@ -25,6 +25,6 @@ pack.output.filename = '[name]-[hash].js';
 const styleLoader = pack.module.loaders.find(loader => loader.name === 'style');
 delete styleLoader.loaders;
 
-styleLoader.loader = ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]', 'postcss');
+styleLoader.loader = ExtractTextPlugin.extract('style', 'sass!css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]', 'postcss');
 
 module.exports = pack;
