@@ -18,11 +18,19 @@ class ProductTable extends React.Component {
     if (products) {
       products.forEach((p) => {
         const nameLC = p.name.toLowerCase();
+        const urlLC = p.url.toLowerCase();
+        const authorLC = p.author.toLowerCase();
         const filterLC = filter.toLowerCase();
 
-        if (nameLC.indexOf(filterLC) !== -1) {
+        const foundInName = nameLC.indexOf(filterLC) !== -1;
+        const foundInUrl = urlLC.indexOf(filterLC) !== -1;
+        const foundInAuthor = authorLC.indexOf(filterLC) !== -1;
+
+        if (foundInName || foundInUrl || foundInAuthor) {
           rows.push(
-            <li key={p.name}>{p.author}/<strong>{p.name}</strong> - <a href={p.url}>{p.url}</a> </li>,
+            <li key={p.name}>
+              {p.author}/<strong>{p.name}</strong> - <a href={p.url}>{p.url}</a>
+            </li>,
           );
         }
       });

@@ -5,6 +5,8 @@ module.exports = (req, res) => {
     { author: 'pirenelito', url: 'https://github.com/saguijs/sagui', name: 'sagui' },
     { author: 'esnunes', url: 'https://github.com/sqlectron/sqlectron-term', name: 'sqlectron-term' },
     { author: 'maxcnunes', url: 'https://github.com/sqlectron', name: 'sqlectron' },
+    { author: 'gabrielsiedler', url: 'https://github.com/gabrielsiedler/simple-react-redux-boilerplate', name: 'simple-react-redux-boilerplate' },
+    { author: 'krolow', url: 'https://github.com/krolow/dolarhoje', name: 'dolarhoje' },
   ].sort((a, b) => a.name.localeCompare(b.name));
 
   res.json({ repositories });
