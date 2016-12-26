@@ -8,6 +8,7 @@ const initialState = {
 const HomeReducers = (state = initialState, action) => {
   switch (action.type) {
     case types.FILTER:
+      console.log('changing filter to', action.payload);
       return {
         ...state,
         filter: action.payload,

@@ -1,5 +1,7 @@
 .Home {
   padding: 20px;
-  background-color: blue;
-  border-radius: 3px;
+}
+
+.ul {
+  list-style: none;
 }

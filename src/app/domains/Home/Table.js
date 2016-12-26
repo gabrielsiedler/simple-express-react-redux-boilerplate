@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
+import style from './Home.css';
 import { fetchData } from './HomeActions';
 
 class ProductTable extends React.Component {
@@ -21,13 +22,18 @@ class ProductTable extends React.Component {
 
         if (nameLC.indexOf(filterLC) !== -1) {
           rows.push(
-            <p key={p.name}>{p.name} = {p.price} </p>,
+            <li key={p.name}>{p.author}/<strong>{p.name}</strong> - <a href={p.url}>{p.url}</a> </li>,
           );
         }
       });
     }
 
-    return <div> {rows} </div>;
+    return (
+      <div>
+        <p className="text-right">Total: {rows.length} repositories.</p>
+        <ul className={style.ul}> {rows} </ul>
+      </div>
+    );
   }
 }
 
@@ -39,8 +45,8 @@ ProductTable.propTypes = {
 
 const mapStateToProps = state => ({ products: state.table.products });
 
-const mapDispatchToProps = dispatch => ({
-  fetchProducts: () => dispatch(fetchData()),
-});
+const mapDispatchToProps = {
+  fetchProducts: fetchData,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductTable);

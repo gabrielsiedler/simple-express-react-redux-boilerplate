@@ -4,11 +4,18 @@ const Filter = ({ filter, onFilter }) => {
   let userInput;
 
   return (
-    <input
-      value={filter}
-      ref={(node) => { userInput = node; }}
-      onChange={() => onFilter(userInput.value)}
-    />
+    <div className="input-group">
+      <span className="input-group-addon" id="basic-addon1">
+        <span className="glyphicon glyphicon-search" />
+      </span>
+      <input
+        type="text"
+        className="form-control"
+        value={filter}
+        ref={(node) => { userInput = node; }}
+        onChange={() => onFilter(userInput.value)}
+      />
+    </div>
   );
 };
 

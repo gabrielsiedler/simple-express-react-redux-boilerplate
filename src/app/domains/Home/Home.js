@@ -8,6 +8,7 @@ import style from './Home.css';
 
 const Home = ({ filter, onFilter }) => (
   <div className={style.Home}>
+    <h2>Search for repositories:</h2>
     <Filter filter={filter} onFilter={onFilter} />
     <Table filter={filter} />
   </div>
@@ -22,11 +23,11 @@ const mapStateToProps = state => ({
   filter: state.table.filter,
 });
 
-const mapDispatchToProps = dispatch => ({
-  onFilter: filterText => dispatch(filterTable(filterText)),
-});
+const mapDispatchToProps = {
+  onFilter: filterTable,
+};
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
+  mapStateToProps,
+  mapDispatchToProps,
 )(Home);
