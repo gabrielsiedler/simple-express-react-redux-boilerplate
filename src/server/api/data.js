@@ -9,5 +9,7 @@ module.exports = (req, res) => {
     { author: 'krolow', url: 'https://github.com/krolow/dolarhoje', name: 'dolarhoje' },
   ].sort((a, b) => a.name.localeCompare(b.name));
 
-  res.json({ repositories });
+  setTimeout(() => {
+    res.json({ repositories });
+  }, 2000);
 };

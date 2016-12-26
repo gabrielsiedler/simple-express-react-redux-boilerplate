@@ -2,7 +2,6 @@ import types from '../../constants';
 
 export function filterTable(filter) {
   return (dispatch) => {
-    console.log('here');
     dispatch({
       type: types.FILTER,
       payload: filter,
@@ -12,6 +11,7 @@ export function filterTable(filter) {
 
 export function fetchData() {
   return async (dispatch) => {
+    dispatch({ type: types.REPOSITORIES_FETCH_START });
     fetch('/api/data', {
       method: 'GET',
       headers: {
@@ -21,7 +21,7 @@ export function fetchData() {
       .then(response => response.json())
       .then((data) => {
         dispatch({
-          type: types.FETCH,
+          type: types.REPOSITORIES_FETCH_END,
           payload: data.repositories,
         });
       });

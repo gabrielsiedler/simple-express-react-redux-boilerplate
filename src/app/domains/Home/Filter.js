@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-const Filter = ({ filter, onFilter }) => {
+const Filter = ({ filter, onFilter, loading }) => {
   let userInput;
 
   return (
@@ -12,6 +12,7 @@ const Filter = ({ filter, onFilter }) => {
         type="text"
         className="form-control"
         value={filter}
+        disabled={loading}
         ref={(node) => { userInput = node; }}
         onChange={() => onFilter(userInput.value)}
       />
@@ -21,6 +22,7 @@ const Filter = ({ filter, onFilter }) => {
 
 Filter.propTypes = {
   filter: PropTypes.string,
+  loading: PropTypes.bool,
   onFilter: PropTypes.func,
 };
 

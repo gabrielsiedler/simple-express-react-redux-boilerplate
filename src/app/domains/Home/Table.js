@@ -1,60 +1,45 @@
 import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
 
 import style from './Home.css';
-import { fetchData } from './HomeActions';
 
-class ProductTable extends React.Component {
-  componentDidMount() {
-    const { fetchProducts } = this.props;
+const RepositoryTable = ({ filter, loading, repositories }) => {
+  const rows = [];
 
-    fetchProducts();
+  if (loading) {
+    return <div className={`${style.gif} glyphicon glyphicon-refresh spinning`} />;
   }
 
-  render() {
-    const { filter, products } = this.props;
-    const rows = [];
+  repositories.forEach((p) => {
+    const nameLC = p.name.toLowerCase();
+    const urlLC = p.url.toLowerCase();
+    const authorLC = p.author.toLowerCase();
+    const filterLC = filter.toLowerCase();
 
-    if (products) {
-      products.forEach((p) => {
-        const nameLC = p.name.toLowerCase();
-        const urlLC = p.url.toLowerCase();
-        const authorLC = p.author.toLowerCase();
-        const filterLC = filter.toLowerCase();
+    const foundInName = nameLC.indexOf(filterLC) !== -1;
+    const foundInUrl = urlLC.indexOf(filterLC) !== -1;
+    const foundInAuthor = authorLC.indexOf(filterLC) !== -1;
 
-        const foundInName = nameLC.indexOf(filterLC) !== -1;
-        const foundInUrl = urlLC.indexOf(filterLC) !== -1;
-        const foundInAuthor = authorLC.indexOf(filterLC) !== -1;
-
-        if (foundInName || foundInUrl || foundInAuthor) {
-          rows.push(
-            <li key={p.name}>
-              {p.author}/<strong>{p.name}</strong> - <a href={p.url}>{p.url}</a>
-            </li>,
-          );
-        }
-      });
+    if (foundInName || foundInUrl || foundInAuthor) {
+      rows.push(
+        <li key={p.name}>
+          {p.author}/<strong>{p.name}</strong> - <a href={p.url}>{p.url}</a>
+        </li>,
+      );
     }
+  });
 
-    return (
-      <div>
-        <p className="text-right">Total: {rows.length} repositories.</p>
-        <ul className={style.ul}> {rows} </ul>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <p className="text-right">Total: {rows.length} repositories.</p>
+      <ul className={style.ul}> {rows} </ul>
+    </div>
+  );
+};
 
-ProductTable.propTypes = {
+RepositoryTable.propTypes = {
   filter: PropTypes.string,
-  products: PropTypes.array,
-  fetchProducts: PropTypes.func,
+  repositories: PropTypes.array,
+  loading: PropTypes.bool,
 };
 
-const mapStateToProps = state => ({ products: state.table.products });
-
-const mapDispatchToProps = {
-  fetchProducts: fetchData,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProductTable);
+export default RepositoryTable;
