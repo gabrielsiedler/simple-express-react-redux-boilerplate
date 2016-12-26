@@ -16,7 +16,7 @@ This project was based on two other boilerplates:
 
 ## Demo
 
-![Logo](docs/demo.gif)
+![Logo](docs/demov2.gif)
 
 ## Run the app
 
