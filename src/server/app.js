@@ -55,7 +55,7 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
 }
 
 app.use('/public', express.static(rootPath.resolve('dist')));
-app.use('/api', require('./src/server/api'));
+app.use('/api', require('./api'));
 
 app.get('*', (req, res) => {
   res.sendFile(rootPath.resolve('dist', 'index.html'));
