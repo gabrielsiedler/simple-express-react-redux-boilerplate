@@ -1,7 +1,9 @@
-const express = require('express');
+import express from 'express';
+
+import dataAPI from './data';
 
 const router = express.Router();
 
-router.get('/data', require('./data'));
+router.get('/data', dataAPI);
 
-module.exports = router;
+export default router;
