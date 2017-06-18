@@ -1,4 +1,6 @@
+const bodyParser = require('body-parser');
 const compression = require('compression');
+const cors = require('cors');
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
@@ -14,8 +16,19 @@ const compiler = webpack(webpackConfig);
 
 app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
 
+app.use(bodyParser.json());
+
+app.use((err, req, res, next) => {
+  if (err.status === 400) {
+    return res.status(err.status).send({ error: 'Invalid JSON.' });
+  }
+
+  return next(err);
+});
+
 app.use(compression());
 app.use(favicon(path.join(__dirname, 'favicon.ico')));
+app.use(cors());
 
 if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
   console.log('Development environment. Using webpack-dev-middleware.'); // eslint-disable-line no-console
