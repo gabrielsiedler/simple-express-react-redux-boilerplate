@@ -6,7 +6,6 @@ const pack = require('./webpack.config');
 pack.plugins.push(new webpack.optimize.OccurenceOrderPlugin());
 pack.plugins.push(new webpack.optimize.UglifyJsPlugin({
   compressor: {
-    warnings: false,
     screw_ie8: true,
   },
 }));
