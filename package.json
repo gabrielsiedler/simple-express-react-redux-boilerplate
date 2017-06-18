@@ -1,6 +1,6 @@
 {
   "name": "simple-react-redux-boilerplate",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "React/Redux boilerplate.",
   "main": "index.js",
   "scripts": {
