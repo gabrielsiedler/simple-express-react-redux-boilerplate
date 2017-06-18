@@ -1,3 +1,4 @@
+const rootPath = require('app-root-path');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const cors = require('cors');
@@ -27,7 +28,7 @@ app.use((err, req, res, next) => {
 });
 
 app.use(compression());
-app.use(favicon(path.join(__dirname, 'favicon.ico')));
+app.use(favicon(rootPath.resolve('favicon.ico')));
 app.use(cors());
 
 if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
@@ -53,11 +54,11 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
   app.use(webpackHotMiddleware(compiler));
 }
 
-app.use('/public', express.static(path.join(__dirname, 'dist')));
+app.use('/public', express.static(rootPath.resolve('dist')));
 app.use('/api', require('./src/server/api'));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
+  res.sendFile(rootPath.resolve('dist', 'index.html'));
 });
 
 module.exports = app;
