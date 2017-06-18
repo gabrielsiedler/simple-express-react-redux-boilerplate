@@ -3,12 +3,12 @@
   "version": "1.2.0",
   "description": "React/Redux boilerplate.",
   "scripts": {
-    "start": "cross-env NODE_ENV=production nodemon build/server",
+    "start": "cross-env NODE_ENV=production nodemon lib/server.js",
     "start:dev": "cross-env NODE_ENV=development nodemon server --ignore node_modules --ignore src/app --exec babel-node --presets es2015,stage-1",
     "build": "npm run build:clean && npm run build:server && npm run build:app",
-    "build:clean": "rimraf dist build",
+    "build:clean": "rimraf dist lib",
     "build:app": "cross-env NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
-    "build:server": "babel src/server --ignore spec -d build",
+    "build:server": "babel src/server --ignore spec -d lib",
     "test": "npm run test:lint && npm run test:unit",
     "test:lint": "eslint . && stylelint src/app/**/*.css || true",
     "test:unit": "mocha src/server/spec"

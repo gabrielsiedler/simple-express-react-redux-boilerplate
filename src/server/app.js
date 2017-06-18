@@ -11,7 +11,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 
 const app = express();
-const webpackConfig = require('./webpack.development.config');
+const webpackConfig = rootPath.require('webpack.development.config');
 
 const compiler = webpack(webpackConfig);
 
@@ -58,7 +58,7 @@ app.use('/public', express.static(rootPath.resolve('dist')));
 app.use('/api', require('./api'));
 
 app.get('*', (req, res) => {
-  res.sendFile(rootPath.resolve('dist', 'index.html'));
+  res.sendFile(rootPath.resolve('dist/index.html'));
 });
 
 module.exports = app;
