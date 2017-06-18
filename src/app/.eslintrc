@@ -1,0 +1,13 @@
+{
+  "rules": {
+    "import/prefer-default-export": 0
+  },
+  "globals": {
+    "document": true,
+    "window": true,
+    "localStorage": true,
+    "fetch": true,
+    "FormData": true,
+    "location": true
+  }
+}

@@ -1,4 +1,4 @@
-module.exports = (req, res) => {
+export default function(req, res) {
   const repositories = [
     { author: 'brunolm', url: 'https://github.com/brunolm/ts-react-redux-startup', name: 'ts-react-redux-startup' },
     { author: 'jpsierens', url: 'https://github.com/jpsierens/webpack-react-redux', name: 'webpack-react-redux' },

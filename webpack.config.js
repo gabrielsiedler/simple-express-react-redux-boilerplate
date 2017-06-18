@@ -24,63 +24,58 @@ const pack = {
     new HtmlWebpackHarddiskPlugin(),
   ],
   module: {
-    loaders: [
+    rules: [
       {
-        name: 'global',
         test: /global\.scss$/,
         include: /src\/app/,
-        loaders: [
-          'style?sourceMap',
-          'css?sourceMap&importLoaders=1',
-          'sass',
-          'postcss',
-        ],
+        use: [
+          'style-loader?sourceMap',
+          'css-loader?sourceMap&importLoaders=1',
+          'sass-loader',
+          'postcss-loader?' + JSON.stringify({ autoprefixer: true })
+        ]
       },
       {
-        name: 'style',
         test: /^((?!global).)*\.s?css$/,
         include: /src\/app/,
-        loaders: [
-          'style?sourceMap',
-          'css?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
-          'sass',
-          'postcss',
-        ],
+        use: [
+          'style-loader?sourceMap',
+          'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+          'sass-loader',
+          'postcss-loader?' + JSON.stringify({ autoprefixer: true }),
+        ]
       },
       {
         test: /\.js?$/,
         include: /src\/app/,
-        loader: 'babel',
+        use: 'babel-loader',
       },
       {
         test: /\.svg(\?[a-z0-9#=&.]+)?$/,
-        loader: 'url?limit=65000&mimetype=image/svg+xml&name=public/fonts/[name].[ext]',
+        use: 'url-loader?limit=65000&mimetype=image/svg+xml&name=public/fonts/[name].[ext]',
       },
       {
         test: /\.woff(\?[a-z0-9#=&.]+)?$/,
-        loader: 'url?limit=65000&mimetype=application/font-woff&name=public/fonts/[name].[ext]',
+        loader: 'url-loader?limit=65000&mimetype=application/font-woff&name=public/fonts/[name].[ext]',
       },
       {
         test: /\.woff2(\?[a-z0-9#=&.]+)?$/,
-        loader: 'url?limit=65000&mimetype=application/font-woff2&name=public/fonts/[name].[ext]',
+        use: 'url-loader?limit=65000&mimetype=application/font-woff2&name=public/fonts/[name].[ext]',
       },
       {
         test: /\.[ot]tf(\?[a-z0-9#=&.]+)?$/,
-        loader: 'url?limit=65000&mimetype=application/octet-stream&name=public/fonts/[name].[ext]',
+        use: 'url-loader?limit=65000&mimetype=application/octet-stream&name=public/fonts/[name].[ext]',
       },
       {
         test: /\.eot(\?[a-z0-9#=&.]+)?$/,
-        loader: 'url?limit=65000&mimetype=application/vnd.ms-fontobject&name=public/fonts/[name].[ext]',
+        use: 'url-loader?limit=65000&mimetype=application/vnd.ms-fontobject&name=public/fonts/[name].[ext]',
       },
       {
         test: /\.(png|jpg|jpeg|gif)$/,
-        loader: 'url-loader?limit=8192',
-      },
-    ],
-  },
-  postcss: [
-    autoprefixer,
-  ],
+        use: 'url-loader?limit=8192',
+      }
+    ]
+  }
 };
 
 module.exports = pack;
