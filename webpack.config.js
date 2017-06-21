@@ -1,13 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
-const autoprefixer = require('autoprefixer');
 
 const pack = {
-  entry: [
-    'whatwg-fetch',
-    path.join(__dirname, 'src/app/index.js'),
-  ],
+  entry: ['whatwg-fetch', path.join(__dirname, 'src/app/index.js')],
   output: {
     path: path.join(__dirname, '/dist/'),
     filename: '[name].js',
@@ -32,8 +28,8 @@ const pack = {
           'style-loader?sourceMap',
           'css-loader?sourceMap&importLoaders=1',
           'sass-loader',
-          'postcss-loader?' + JSON.stringify({ autoprefixer: true })
-        ]
+          `postcss-loader?${JSON.stringify({ autoprefixer: true })}`,
+        ],
       },
       {
         test: /^((?!global).)*\.s?css$/,
@@ -42,8 +38,8 @@ const pack = {
           'style-loader?sourceMap',
           'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
           'sass-loader',
-          'postcss-loader?' + JSON.stringify({ autoprefixer: true }),
-        ]
+          `postcss-loader?${JSON.stringify({ autoprefixer: true })}`,
+        ],
       },
       {
         test: /\.js?$/,
@@ -73,9 +69,9 @@ const pack = {
       {
         test: /\.(png|jpg|jpeg|gif)$/,
         use: 'url-loader?limit=8192',
-      }
-    ]
-  }
+      },
+    ],
+  },
 };
 
 module.exports = pack;
