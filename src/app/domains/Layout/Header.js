@@ -14,7 +14,13 @@ const Header = ({ location }) => {
     <nav className={`navbar navbar-inverse ${style.navbar}`}>
       <div className="container-fluid">
         <div className="navbar-header">
-          <button type="button" className={`navbar-toggle collapsed ${style.collapseBtn}`} data-toggle="collapse" data-target="#collapse-menu" aria-expanded="false">
+          <button
+            type="button"
+            className={`navbar-toggle collapsed ${style.collapseBtn}`}
+            data-toggle="collapse"
+            data-target="#collapse-menu"
+            aria-expanded="false"
+          >
             <span className="sr-only">Toggle navigation</span>
             <span className="icon-bar" />
             <span className="icon-bar" />
@@ -28,13 +34,17 @@ const Header = ({ location }) => {
           <ul className={`nav navbar-nav ${style.nav}`}>
             <li className={active('/')}>
               <Link className={style.link} to="/">
-                <span className={`glyphicon glyphicon-home text-center ${style.icon}`} />
+                <span
+                  className={`glyphicon glyphicon-home text-center ${style.icon}`}
+                />
                 Home
               </Link>
             </li>
             <li className={active('/about')}>
               <Link className={style.link} to="/about">
-                <span className={`glyphicon glyphicon-info-sign text-center ${style.icon}`} />
+                <span
+                  className={`glyphicon glyphicon-info-sign text-center ${style.icon}`}
+                />
                 About
               </Link>
             </li>

@@ -46,7 +46,4 @@ const mapDispatchToProps = {
   fetchRepositories: fetchData,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

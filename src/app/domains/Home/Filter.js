@@ -14,7 +14,9 @@ const Filter = ({ filter, onFilter, loading }) => {
         className="form-control"
         value={filter}
         disabled={loading}
-        ref={(node) => { userInput = node; }}
+        ref={(node) => {
+          userInput = node;
+        }}
         onChange={() => onFilter(userInput.value)}
       />
     </div>

@@ -7,7 +7,9 @@ const RepositoryTable = ({ filter, loading, repositories }) => {
   const rows = [];
 
   if (loading) {
-    return <div className={`${style.gif} glyphicon glyphicon-refresh spinning`} />;
+    return (
+      <div className={`${style.gif} glyphicon glyphicon-refresh spinning`} />
+    );
   }
 
   repositories.forEach((p) => {
