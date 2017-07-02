@@ -40,7 +40,7 @@ const Navbar = styled(base)`
     padding-top: 25px;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: ${props => props.theme.screen.in}) {
     .nav {
       margin-left: 30px;
     }
