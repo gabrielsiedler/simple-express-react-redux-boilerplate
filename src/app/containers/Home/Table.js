@@ -2,14 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import style from './Home.css';
+import Loader from '../../components/Loader.jsx';
 
 const RepositoryTable = ({ filter, loading, repositories }) => {
   const rows = [];
 
   if (loading) {
-    return (
-      <div className={`${style.gif} glyphicon glyphicon-refresh spinning`} />
-    );
+    return <Loader />;
   }
 
   repositories.forEach((p) => {

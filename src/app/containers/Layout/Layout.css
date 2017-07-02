@@ -1,9 +1,3 @@
-.navbar {
-  background-color: #333;
-  border: 0;
-  border-radius: 0;
-}
-
 .brand {
   height: 80px;
 }
@@ -31,8 +25,3 @@
   padding-top: 25px;
 }
 
-@media (min-width: 768px) {
-  .nav {
-    margin-left: 30px;
-  }
-}

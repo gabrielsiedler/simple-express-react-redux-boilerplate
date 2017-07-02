@@ -5,14 +5,19 @@ import { Link } from 'react-router';
 import style from './Layout.css';
 import logoImage from '../../assets/img/logo.png';
 
+import {
+  Navbar,
+  Container,
+} from '../../components';
+
 const Header = ({ location }) => {
   const activeRoute = location.pathname;
 
   const active = current => (activeRoute === current ? 'active' : '');
 
   return (
-    <nav className={`navbar navbar-inverse ${style.navbar}`}>
-      <div className="container-fluid">
+    <Navbar>
+      <Container fluid>
         <div className="navbar-header">
           <button
             type="button"
@@ -50,8 +55,8 @@ const Header = ({ location }) => {
             </li>
           </ul>
         </div>
-      </div>
-    </nav>
+      </Container>
+    </Navbar>
   );
 };
 

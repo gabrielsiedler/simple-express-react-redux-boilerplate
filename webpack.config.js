@@ -9,6 +9,9 @@ const pack = {
     filename: '[name].js',
     publicPath: '/public/',
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/app/index.html',
@@ -42,7 +45,7 @@ const pack = {
         ],
       },
       {
-        test: /\.js?$/,
+        test: /\.jsx?$/,
         include: /src\/app/,
         use: 'babel-loader',
       },
