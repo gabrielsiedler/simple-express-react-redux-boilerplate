@@ -22,9 +22,6 @@ const Header = ({ location }) => {
           <button
             type="button"
             className="navbar-toggle collapsed"
-            data-toggle="collapse"
-            data-target="#collapse-menu"
-            aria-expanded="false"
           >
             <span className="sr-only">Toggle navigation</span>
             <span className="icon-bar" />
