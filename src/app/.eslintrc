@@ -3,6 +3,9 @@
     "import/prefer-default-export": 0,
     "react/require-default-props": 0
   },
+  "settings":{
+    "import/extensions": [".js", ".jsx"]
+  },
   "globals": {
     "document": true,
     "window": true,

@@ -10,12 +10,14 @@ pack.plugins.push(
     },
   }),
 );
+
 pack.plugins.push(
   new StatsPlugin('webpack.stats.json', {
     source: false,
     modules: false,
   }),
 );
+
 pack.plugins.push(
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify('production'),

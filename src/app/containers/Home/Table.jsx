@@ -1,15 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import style from './Home.css';
+import { Ul, Loader } from '../../components/ui';
 
 const RepositoryTable = ({ filter, loading, repositories }) => {
   const rows = [];
 
   if (loading) {
-    return (
-      <div className={`${style.gif} glyphicon glyphicon-refresh spinning`} />
-    );
+    return <Loader />;
   }
 
   repositories.forEach((p) => {
@@ -34,7 +32,7 @@ const RepositoryTable = ({ filter, loading, repositories }) => {
   return (
     <div>
       <p className="text-right">Total: {rows.length} repositories.</p>
-      <ul className={style.ul}> {rows} </ul>
+      <Ul> {rows} </Ul>
     </div>
   );
 };

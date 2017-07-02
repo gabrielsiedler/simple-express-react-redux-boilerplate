@@ -9,6 +9,9 @@ const pack = {
     filename: '[name].js',
     publicPath: '/public/',
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/app/index.html',
@@ -22,27 +25,15 @@ const pack = {
   module: {
     rules: [
       {
-        test: /global\.scss$/,
+        test: /.*\.css$/,
         include: /src\/app/,
         use: [
-          'style-loader?sourceMap',
-          'css-loader?sourceMap&importLoaders=1',
-          'sass-loader',
-          `postcss-loader?${JSON.stringify({ autoprefixer: true })}`,
+          'style-loader',
+          'css-loader',
         ],
       },
       {
-        test: /^((?!global).)*\.s?css$/,
-        include: /src\/app/,
-        use: [
-          'style-loader?sourceMap',
-          'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
-          'sass-loader',
-          `postcss-loader?${JSON.stringify({ autoprefixer: true })}`,
-        ],
-      },
-      {
-        test: /\.js?$/,
+        test: /\.jsx?$/,
         include: /src\/app/,
         use: 'babel-loader',
       },

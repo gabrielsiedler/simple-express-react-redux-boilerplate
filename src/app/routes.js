@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import About from './domains/About/About';
-import Layout from './domains/Layout/Layout';
-import Home from './domains/Home/Home';
-import NotFound from './domains/NotFound/NotFound';
+import About from './containers/About/About';
+import Layout from './containers/Layout/Layout';
+import Home from './containers/Home/Home';
+import NotFound from './containers/NotFound/NotFound';
 
 export default (
   <Route path="/" component={Layout}>

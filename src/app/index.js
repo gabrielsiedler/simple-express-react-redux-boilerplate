@@ -6,8 +6,7 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
-import './global.scss';
-import '../../node_modules/bootstrap-sass/assets/javascripts/bootstrap.min';
+import './assets/style/bootstrap.min.css';
 
 import Reducers from './reducers';
 
