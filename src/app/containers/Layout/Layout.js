@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Header from './Header';
 
+import { Container } from '../../components/ui';
+
 const App = ({ children, location }) => (
   <div>
     <Header location={location} />
-    <div className="container">
+    <Container>
       {children}
-    </div>
+    </Container>
   </div>
 );
 

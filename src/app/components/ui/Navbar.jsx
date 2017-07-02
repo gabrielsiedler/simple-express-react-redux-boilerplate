@@ -21,21 +21,6 @@ const Navbar = styled(base)`
   border: 0;
   border-radius: 0;
 
-  li a {
-    height: 80px;
-  }
-
-  a {
-    min-width: 80px;
-    text-align: center;
-  }
-
-  i {
-    margin: 0 auto 5px;
-    display: block;
-    font-size: 25px;
-  }
-
   .collapseBtn {
     padding-top: 25px;
   }

@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
 
 import logoImage from '../../assets/img/logo.png';
 
 import {
   Brand,
   Container,
+  MenuLink,
   Navbar,
 } from '../../components/ui';
 
@@ -31,27 +31,27 @@ const Header = ({ location }) => {
             <span className="icon-bar" />
             <span className="icon-bar" />
           </button>
-          <Brand to="/">
-            <img alt="Logo" src={logoImage} role="presentation" />
-          </Brand>
+          <MenuLink className="navbar-brand" to="/">
+            <Brand alt="Logo" src={logoImage} role="presentation" />
+          </MenuLink>
         </div>
         <div className="collapse navbar-collapse" id="collapse-menu">
           <ul className="nav navbar-nav">
             <li className={active('/')}>
-              <Link to="/">
+              <MenuLink to="/">
                 <span
                   className="glyphicon glyphicon-home text-center"
                 />
                 Home
-              </Link>
+              </MenuLink>
             </li>
             <li className={active('/about')}>
-              <Link to="/about">
+              <MenuLink to="/about">
                 <span
                   className="glyphicon glyphicon-info-sign text-center"
                 />
                 About
-              </Link>
+              </MenuLink>
             </li>
           </ul>
         </div>
