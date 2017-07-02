@@ -1,4 +1,4 @@
-export default function (req, res) {
+const fetch = async () => {
   const repositories = [
     {
       author: 'brunolm',
@@ -37,7 +37,11 @@ export default function (req, res) {
     },
   ].sort((a, b) => a.name.localeCompare(b.name));
 
-  setTimeout(() => {
-    res.json({ repositories });
-  }, 2000);
+  return new Promise(resolve => setTimeout(() => resolve(repositories), 2000));
+};
+
+export default async function (req, res) {
+  const repositories = await fetch();
+
+  res.json({ repositories });
 }
