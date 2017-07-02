@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { filterTable, fetchData } from './HomeActions';
 import Filter from './Filter';
 import Table from './Table';
-import style from './Home.css';
 
 class Home extends React.Component {
   componentDidMount() {
@@ -18,7 +17,7 @@ class Home extends React.Component {
     const { filter, onFilter, loading, repositories } = this.props;
 
     return (
-      <div className={style.Home}>
+      <div>
         <h2>Search for repositories:</h2>
         <Filter filter={filter} onFilter={onFilter} loading={loading} />
         <Table filter={filter} loading={loading} repositories={repositories} />

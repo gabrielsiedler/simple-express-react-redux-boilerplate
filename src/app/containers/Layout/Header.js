@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 
-import style from './Layout.css';
 import logoImage from '../../assets/img/logo.png';
 
 import {
-  Navbar,
+  Brand,
   Container,
-} from '../../components';
+  Navbar,
+} from '../../components/ui';
 
 const Header = ({ location }) => {
   const activeRoute = location.pathname;
@@ -21,7 +21,7 @@ const Header = ({ location }) => {
         <div className="navbar-header">
           <button
             type="button"
-            className={`navbar-toggle collapsed ${style.collapseBtn}`}
+            className="navbar-toggle collapsed"
             data-toggle="collapse"
             data-target="#collapse-menu"
             aria-expanded="false"
@@ -31,24 +31,24 @@ const Header = ({ location }) => {
             <span className="icon-bar" />
             <span className="icon-bar" />
           </button>
-          <Link className={`navbar-brand ${style.brand}`} to="/">
+          <Brand to="/">
             <img alt="Logo" src={logoImage} role="presentation" />
-          </Link>
+          </Brand>
         </div>
         <div className="collapse navbar-collapse" id="collapse-menu">
-          <ul className={`nav navbar-nav ${style.nav}`}>
+          <ul className="nav navbar-nav">
             <li className={active('/')}>
-              <Link className={style.link} to="/">
+              <Link to="/">
                 <span
-                  className={`glyphicon glyphicon-home text-center ${style.icon}`}
+                  className="glyphicon glyphicon-home text-center"
                 />
                 Home
               </Link>
             </li>
             <li className={active('/about')}>
-              <Link className={style.link} to="/about">
+              <Link to="/about">
                 <span
-                  className={`glyphicon glyphicon-info-sign text-center ${style.icon}`}
+                  className="glyphicon glyphicon-info-sign text-center"
                 />
                 About
               </Link>

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Container = ({ fluid, className, children }) => (
-  <div className={`${fluid ? 'container' : 'container-fluid'} ${className}`}>
+  <div className={`${fluid ? 'container' : 'container-fluid'} ${className || ''}`}>
     {children}
   </div>
 );
