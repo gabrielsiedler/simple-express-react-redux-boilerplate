@@ -1,16 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
+import { toggleMenu as toggleMenuAction } from './HeaderActions';
 import logoImage from '../../assets/img/logo.png';
 
-import {
-  Brand,
-  Container,
-  MenuLink,
-  Navbar,
-} from '../../components/ui';
+import { Brand, Container, MenuLink, Navbar, CollapseNavbar } from '../../components/ui';
 
-const Header = ({ location }) => {
+const Header = ({ mobileVisible, location, toggleMenu }) => {
   const activeRoute = location.pathname;
 
   const active = current => (activeRoute === current ? 'active' : '');
@@ -22,6 +19,7 @@ const Header = ({ location }) => {
           <button
             type="button"
             className="navbar-toggle collapsed"
+            onClick={() => toggleMenu()}
           >
             <span className="sr-only">Toggle navigation</span>
             <span className="icon-bar" />
@@ -32,26 +30,22 @@ const Header = ({ location }) => {
             <Brand alt="Logo" src={logoImage} role="presentation" />
           </MenuLink>
         </div>
-        <div className="collapse navbar-collapse" id="collapse-menu">
+        <CollapseNavbar visible={mobileVisible}>
           <ul className="nav navbar-nav">
             <li className={active('/')}>
               <MenuLink to="/">
-                <span
-                  className="glyphicon glyphicon-home text-center"
-                />
+                <span className="glyphicon glyphicon-home text-center" />
                 Home
               </MenuLink>
             </li>
             <li className={active('/about')}>
               <MenuLink to="/about">
-                <span
-                  className="glyphicon glyphicon-info-sign text-center"
-                />
+                <span className="glyphicon glyphicon-info-sign text-center" />
                 About
               </MenuLink>
             </li>
           </ul>
-        </div>
+        </CollapseNavbar>
       </Container>
     </Navbar>
   );
@@ -59,6 +53,16 @@ const Header = ({ location }) => {
 
 Header.propTypes = {
   location: PropTypes.object,
+  mobileVisible: PropTypes.bool,
+  toggleMenu: PropTypes.func,
 };
 
-export default Header;
+const mapStateToProps = state => ({
+  mobileVisible: state.header.mobileVisible,
+});
+
+const mapDispatchToProps = {
+  toggleMenu: toggleMenuAction,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

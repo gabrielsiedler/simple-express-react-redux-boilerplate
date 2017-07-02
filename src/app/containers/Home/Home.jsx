@@ -35,9 +35,9 @@ Home.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  filter: state.table.filter,
-  repositories: state.table.repositories.data,
-  loading: state.table.repositories.loading,
+  filter: state.home.filter,
+  repositories: state.home.repositories.data,
+  loading: state.home.repositories.loading,
 });
 
 const mapDispatchToProps = {
