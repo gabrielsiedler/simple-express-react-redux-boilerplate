@@ -1,7 +1,7 @@
-const constants = {
-  REPOSITORIES_FETCH_START: 'REPOSITORIES_FETCH_START',
-  REPOSITORIES_FETCH_END: 'REPOSITORIES_FETCH_END',
-  FILTER: 'FILTER',
-};
+import HeaderTypes from './containers/Header/types';
+import HomeTypes from './containers/Home/types';
 
-export default constants;
+export default {
+  ...HeaderTypes,
+  ...HomeTypes,
+};
