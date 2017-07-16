@@ -10,7 +10,7 @@
     "build:app": "cross-env NODE_ENV=production webpack --config ./webpack/webpack.config.js --progress --profile --colors",
     "build:server": "babel src/server --ignore spec --presets es2015,stage-1 -d build/lib",
     "test": "npm run test:lint && npm run test:unit",
-    "test:lint": "eslint . && stylelint src/app/**/*.css || true",
+    "test:lint": "eslint . || true",
     "test:unit": "mocha src/server/spec"
   },
   "repository": {
@@ -79,9 +79,6 @@
     "react-addons-test-utils": "^15.6.0",
     "rimraf": "^2.6.1",
     "style-loader": "^0.18.2",
-    "stylelint": "^7.11.1",
-    "stylelint-config-css-modules": "^1.0.0",
-    "stylelint-config-standard": "^16.0.0",
     "url-loader": "^0.5.9"
   },
   "engines": {

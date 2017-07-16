@@ -6,13 +6,9 @@ Contains:
 * Routing
 * Webpack hot reload
 * Webpack production build
-* CSS modules support, just import your styles wherever you need them
-* eslint and stylelint
+* Styled components
+* eslint
 * much more...
-
-This project was based on two other boilerplates:
-- https://github.com/brunolm/ts-react-redux-startup
-- https://github.com/jpsierens/webpack-react-redux
 
 ## Demo
 
