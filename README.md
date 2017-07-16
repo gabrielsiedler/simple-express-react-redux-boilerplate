@@ -20,15 +20,15 @@ This project was based on two other boilerplates:
 
 ## Run the app
 
-0. ```npm install```
-0. ```npm run start:dev```
+0. ```yarn install```
+0. ```yarn run start:dev```
 
 ## Build the app
-```npm run build```
+```yarn run build```
 
 This will build the app into the "dist" directory in the root of the project. It contains the index.html along with the minified assets, ready for production.
 
-After built, you can use ```npm start``` in your production server.
+After built, you can use ```yarn start``` in your production server.
 
 ## License
 
