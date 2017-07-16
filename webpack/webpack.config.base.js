@@ -4,7 +4,9 @@ const webpackModule = require('./webpack.module');
 const isProduction = process.env.NODE_ENV === 'production';
 const filename = isProduction ? '[name].[chunkhash].js' : '[name].[hash].js';
 
-console.log(`Compiling to ${path.join(__dirname, '..', 'dist')}...`); // eslint-disable-line no-console
+if (!isProduction) {
+  console.log(`Compiling to ${path.join(__dirname, '..', 'build', 'public')}...`); // eslint-disable-line no-console
+}
 
 module.exports = {
   context: path.join(__dirname, '..', 'src', 'app'),
@@ -16,8 +18,8 @@ module.exports = {
   },
   output: {
     filename,
-    path: path.join(__dirname, '..', '/dist'),
-    publicPath: '/',
+    path: path.join(__dirname, '..', 'build', 'public'),
+    publicPath: '/public/',
   },
   module: webpackModule,
   devServer: {
