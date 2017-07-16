@@ -9,10 +9,12 @@ import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
+import 'babel-polyfill';
+
 import api from './api';
 
 const app = express();
-const webpackConfig = rootPath.require('webpack.development.config');
+const webpackConfig = rootPath.require('webpack/webpack.config');
 const compiler = webpack(webpackConfig);
 
 app.use(
@@ -57,11 +59,11 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
   app.use(webpackHotMiddleware(compiler));
 }
 
-app.use('/public', express.static(rootPath.resolve('dist')));
+app.use('/public', express.static(rootPath.resolve('build/public/')));
 app.use('/api', api);
 
 app.get('*', (req, res) => {
-  res.sendFile(rootPath.resolve('dist/index.html'));
+  res.sendFile(rootPath.resolve('build/public/index.html'));
 });
 
 module.exports = app;

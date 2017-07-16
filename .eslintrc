@@ -2,7 +2,6 @@
   "root": true,
   "extends": "airbnb",
   "rules": {
-    "react/jsx-filename-extension": 0,
     "react/forbid-prop-types": 0,
     "react/jsx-no-bind": 0,
     "import/no-named-as-default": 0,
