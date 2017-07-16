@@ -9,10 +9,12 @@ import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
+import 'babel-polyfill';
+
 import api from './api';
 
 const app = express();
-const webpackConfig = rootPath.require('webpack/webpack.development.config');
+const webpackConfig = rootPath.require('webpack/webpack.config');
 const compiler = webpack(webpackConfig);
 
 app.use(

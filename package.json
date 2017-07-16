@@ -7,7 +7,7 @@
     "start:dev": "cross-env NODE_ENV=development nodemon src/server/server --ignore node_modules --ignore src/app --exec babel-node --presets es2015,stage-1",
     "build": "npm run build:clean && npm run build:server && npm run build:app",
     "build:clean": "rimraf dist lib",
-    "build:app": "cross-env NODE_ENV=production webpack --config ./webpack/webpack.production.config.js --progress --profile --colors",
+    "build:app": "cross-env NODE_ENV=production webpack --config ./webpack/webpack.config.js --progress --profile --colors",
     "build:server": "babel src/server --ignore spec --presets es2015,stage-1 -d lib",
     "test": "npm run test:lint && npm run test:unit",
     "test:lint": "eslint . && stylelint src/app/**/*.css || true",
@@ -38,6 +38,8 @@
     "express": "^4.15.3",
     "file-loader": "^0.11.2",
     "history": "^3.3.0",
+    "html-webpack-plugin": "^2.29.0",
+    "inline-manifest-webpack-plugin": "^3.0.1",
     "lodash._createassigner": "^3.1.1",
     "morgan": "^1.8.2",
     "node-sass": "^4.5.3",
@@ -53,6 +55,8 @@
     "serve-favicon": "^2.4.3",
     "styled-components": "^2.1.0",
     "webpack": "^3.3.0",
+    "webpack-dev-middleware": "^1.11.0",
+    "webpack-hot-middleware": "^2.18.2",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {

@@ -6,7 +6,7 @@ module.exports = {
       use: [
         {
           loader: 'babel-loader',
-          options: { presets: ['es2015', 'react', 'stage-0'] },
+          options: { presets: ['es2015', 'react', 'stage-1'] },
         },
       ],
     },
@@ -46,6 +46,6 @@ module.exports = {
     {
       test: /\.eot(\?[a-z0-9#=&.]+)?$/,
       use: 'url-loader?limit=65000&mimetype=application/vnd.ms-fontobject&name=public/fonts/[name].[ext]',
-    }
+    },
   ],
 };
