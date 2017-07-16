@@ -19,7 +19,10 @@
   },
   "keywords": [
     "es6",
+    "es7",
     "react",
+    "express",
+    "styled-components",
     "redux"
   ],
   "author": {
@@ -29,7 +32,6 @@
   "license": "MIT",
   "dependencies": {
     "app-root-path": "^2.0.1",
-    "autoprefixer": "^7.1.1",
     "babel-polyfill": "^6.23.0",
     "body-parser": "^1.17.2",
     "compression": "^1.6.2",
@@ -40,9 +42,7 @@
     "history": "^3.3.0",
     "html-webpack-plugin": "^2.29.0",
     "inline-manifest-webpack-plugin": "^3.0.1",
-    "lodash._createassigner": "^3.1.1",
     "morgan": "^1.8.2",
-    "node-sass": "^4.5.3",
     "nodemon": "^1.11.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
@@ -56,8 +56,7 @@
     "styled-components": "^2.1.0",
     "webpack": "^3.3.0",
     "webpack-dev-middleware": "^1.11.0",
-    "webpack-hot-middleware": "^2.18.2",
-    "whatwg-fetch": "^2.0.3"
+    "webpack-hot-middleware": "^2.18.2"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
