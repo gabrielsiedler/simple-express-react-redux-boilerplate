@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { Router } from 'react-router';
 
-import routes from './routes';
+import routes from './Routes';
 import theme from './theme';
 
 export default function Root({ store, history }) {
