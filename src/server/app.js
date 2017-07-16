@@ -12,7 +12,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import api from './api';
 
 const app = express();
-const webpackConfig = rootPath.require('webpack.development.config');
+const webpackConfig = rootPath.require('webpack/webpack.development.config');
 const compiler = webpack(webpackConfig);
 
 app.use(
