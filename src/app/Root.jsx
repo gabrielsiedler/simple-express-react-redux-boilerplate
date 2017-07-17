@@ -2,16 +2,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
-import { Router } from 'react-router';
+import { Route, BrowserRouter as Router, withRouter } from 'react-router-dom';
 
-import routes from './Routes';
+import Layout from './containers/Layout/Layout';
+import routes from './routes';
 import theme from './theme';
 
-export default function Root({ store, history }) {
+const LayoutWithRouter = withRouter(props => <Layout {...props} />);
+
+export default function Root({ store }) {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <Router history={history} routes={routes} />
+        <Router>
+          <LayoutWithRouter>
+            {routes.map(route =>
+              (<Route
+                key={route.path}
+                exact={route.exact}
+                path={route.path}
+                component={route.component}
+              />),
+            )}
+          </LayoutWithRouter>
+        </Router>
       </ThemeProvider>
     </Provider>
   );
@@ -19,5 +33,4 @@ export default function Root({ store, history }) {
 
 Root.propTypes = {
   store: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
 };
