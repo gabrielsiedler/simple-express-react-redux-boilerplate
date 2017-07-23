@@ -11,7 +11,7 @@ if (!isProduction) {
 module.exports = {
   context: path.join(__dirname, '..', 'src', 'app'),
   entry: {
-    app: './index.jsx',
+    app: './App.jsx',
   },
   resolve: {
     extensions: ['.js', '.jsx'],

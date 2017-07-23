@@ -5,7 +5,7 @@ Contains:
 * ES6 - 7 Support with Babel
 * Routing
 * Webpack hot reload
-* Webpack production build
+* Babel and Webpack production build
 * Styled components
 * eslint
 * much more...
@@ -16,13 +16,16 @@ Contains:
 
 ## Run the app
 
-0. ```yarn install```
-0. ```yarn run start:dev```
+    $ yarn install
+    $ yarn run build
+    $ yarn run start:dev
+
+*The build step is needed even when running `start:dev` so the `webpack-dev-middleware` can fetch the static `index.html` file*
 
 ## Build the app
 ```yarn run build```
 
-This will build the app into the "dist" directory in the root of the project. It contains the index.html along with the minified assets, ready for production.
+This will build the app into the `build/public` and your server to `build/lib` directory. The `build` directory will be located at the root of the project. It will contain all code ready for production.
 
 After built, you can use ```yarn start``` in your production server.
 
