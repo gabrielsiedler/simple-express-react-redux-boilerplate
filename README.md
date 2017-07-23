@@ -1,3 +1,6 @@
+# This project is deprecated!
+# Use the microservice version instead: https://github.com/express-react-redux-starter
+
 ![Logo](docs/logo.png)
 
 Contains:
